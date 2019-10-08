@@ -28,12 +28,12 @@ requirements:
     - xorg-libx11  # [unix]
     - xorg-libxaw  # [unix]
     - xorg-libxt  # [unix]
-    - freetype  # [unix]
+    - freetype
   run:
     - xorg-libx11  # [unix]
     - xorg-libxaw  # [unix]
     - xorg-libxt  # [unix]
-    - freetype  # [unix]
+    - freetype
 
 test:
   commands:

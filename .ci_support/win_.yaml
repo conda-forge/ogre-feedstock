@@ -6,7 +6,11 @@ channel_targets:
 - conda-forge main
 cxx_compiler:
 - vs2017
+freetype:
+- 2.9.1
 pin_run_as_build:
+  freetype:
+    max_pin: x
   vc:
     max_pin: x
 vc:

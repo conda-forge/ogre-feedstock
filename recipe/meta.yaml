@@ -6,8 +6,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/OGRECave/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: b771d43ac776337f19aa6869689e4ee6a15c9fc82651ee467aee6311b302cfaf
+  git_url: https://github.com/OGRECave/ogre.git
+  git_rev: v{{ version }}
   patches:
     - 0001-enable-pkg-config-for-Windows.patch
 
@@ -37,7 +37,7 @@ requirements:
 
 test:
   commands:
-    - if exist %PREFIX%\\Library\\bin\\OgreMain.dll (exit 0) else (exit 1)  # [win]
+    - if not exist %PREFIX%\\Library\\bin\\OgreMain.dll exit 1  # [win]
 
 about:
   home: https://www.ogre3d.org/

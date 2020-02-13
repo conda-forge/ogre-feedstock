@@ -1,7 +1,11 @@
+:: MSVC is preferred.
+set CC=cl.exe
+set CXX=cl.exe
+
 mkdir build
 cd build
 cmake ^
-    -G "NMake Makefiles" ^
+    -G "Ninja" ^
     -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
     -DCMAKE_BUILD_TYPE=Release ^
     -DCMAKE_CXX_FLAGS=-EHsc ^
@@ -19,5 +23,11 @@ cmake ^
     -DOGRE_THREAD_PROVIDER=1 ^
     %SRC_DIR%
 if errorlevel 1 exit 1
-nmake install
+
+:: Build.
+cmake --build . --config Release
+if errorlevel 1 exit 1
+
+:: Install.
+cmake --build . --config Release --target install
 if errorlevel 1 exit 1

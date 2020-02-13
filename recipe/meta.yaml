@@ -9,10 +9,10 @@ source:
   url: https://github.com/OGRECave/{{ name }}/archive/v{{ version }}.tar.gz
   sha256: 5b755a91bcb2a48a01c74109a9b41592533700622a8394c62589dce2adeddead
   patches:
-    - 0001-enable-pkg-config-for-Windows.patch
+      - 0001-enable-pkg-config-for-Windows.patch  # [win]
 
 build:
-  number: 2
+  number: 3
   skip: true  # [osx or win and vc<14]
   run_exports:
     - {{ pin_subpackage('ogre', max_pin='x.x') }}
@@ -23,21 +23,48 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
     - pkg-config
-    - make  # [unix]
+    - make                               # [unix]
+    - {{ cdt('xorg-x11-proto-devel') }}  # [unix]
+    - {{ cdt('mesa-libgl-devel') }}      # [unix]
+    - {{ cdt('mesa-dri-drivers') }}      # [unix]
+    - {{ cdt('libxrender-devel') }}      # [unix]
+    - {{ cdt('libxrandr-devel') }}       # [unix]
+    - {{ cdt('libxrandr') }}             # [unix]
   host:
     - xorg-libx11  # [unix]
     - xorg-libxaw  # [unix]
-    - xorg-libxt  # [unix]
+    - xorg-libxt   # [unix]
+    - libglu       # [unix]
     - freetype
+    - pugixml
+    - zlib
+    - zziplib
+    - freeimage
+    - openexr
+    - sdl2
+    - swig         # [unix]
+    - mono         # [unix]
   run:
     - xorg-libx11  # [unix]
     - xorg-libxaw  # [unix]
-    - xorg-libxt  # [unix]
+    - xorg-libxt   # [unix]
     - freetype
+    - zlib
+    - zziplib
+    - freeimage
+    - openexr
+    - sdl2
+    - swig         # [unix]
 
 test:
   commands:
-    - if exist %PREFIX%\\Library\\bin\\OgreMain.dll (exit 0) else (exit 1)  # [win]
+    - if not exist %PREFIX%\\Library\\bin\\OgreMain.dll exit 1  # [win]
+    - test -f $PREFIX/include/OGRE/OgreRoot.h  # [unix]
+    - test -f $PREFIX/lib/pkgconfig/OGRE.pc  # [unix]
+    - test -f $PREFIX/lib/libOgreMain${SHLIB_EXT}  # [unix]
+    - test -f $PREFIX/lib/OGRE/cmake/OgreAddTargets.cmake  # [unix]
+    - test -f $PREFIX/lib/OGRE/cmake/OgreAddTargets.cmake  # [unix]
+    - test -f $PREFIX/lib/libOgreRTShaderSystem.so  # [unix]
 
 about:
   home: https://www.ogre3d.org/

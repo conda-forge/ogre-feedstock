@@ -1,18 +1,18 @@
 {% set name = "ogre" %}
-{% set version = "1.10.12" %}
+{% set version = "1.12.3" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/OGRECave/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 5b755a91bcb2a48a01c74109a9b41592533700622a8394c62589dce2adeddead
+  git_url: https://github.com/OGRECave/ogre.git
+  git_rev: v{{ version }}
   patches:
     - 0001-enable-pkg-config-for-Windows.patch
 
 build:
-  number: 2
+  number: 0
   skip: true  # [osx or win and vc<14]
   run_exports:
     - {{ pin_subpackage('ogre', max_pin='x.x') }}
@@ -29,15 +29,17 @@ requirements:
     - xorg-libxaw  # [unix]
     - xorg-libxt  # [unix]
     - freetype
+    - pugixml
   run:
     - xorg-libx11  # [unix]
     - xorg-libxaw  # [unix]
     - xorg-libxt  # [unix]
     - freetype
+    - pugixml
 
 test:
   commands:
-    - if exist %PREFIX%\\Library\\bin\\OgreMain.dll (exit 0) else (exit 1)  # [win]
+    - if not exist %PREFIX%\\Library\\bin\\OgreMain.dll exit 1  # [win]
 
 about:
   home: https://www.ogre3d.org/

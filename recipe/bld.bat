@@ -21,6 +21,7 @@ cmake ^
     -DOGRE_RESOURCEMANAGER_STRICT=0 ^
     -DOGRE_THREAD_SUPPORT=2 ^
     -DOGRE_THREAD_PROVIDER=1 ^
+    -DOGRE_CONFIG_ENABLE_ZIP=ON ^
     %SRC_DIR%
 if errorlevel 1 exit 1
 

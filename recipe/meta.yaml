@@ -1,5 +1,5 @@
 {% set name = "ogre" %}
-{% set version = "1.12.3" %}
+{% set version = "1.12.5" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
     - 0001-enable-pkg-config-for-Windows.patch
 
 build:
-  number: 1
+  number: 0
   skip: true  # [osx or win and vc<14]
   run_exports:
     - {{ pin_subpackage('ogre', max_pin='x.x') }}

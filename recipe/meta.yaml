@@ -43,21 +43,18 @@ requirements:
     - openexr
     - sdl2
     - swig
-    - mono
+    - mono         # [unix]
   run:
     - xorg-libx11  # [unix]
     - xorg-libxaw  # [unix]
     - xorg-libxt   # [unix]
-    - libglu       # [unix]
     - freetype
-    - pugixml
     - zlib
     - zziplib
     - freeimage
     - openexr
     - sdl2
     - swig
-    - mono
 
 test:
   commands:

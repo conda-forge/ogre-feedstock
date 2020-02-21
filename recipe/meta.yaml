@@ -42,7 +42,7 @@ requirements:
     - freeimage
     - openexr
     - sdl2
-    - swig
+    - swig         # [unix]
     - mono         # [unix]
   run:
     - xorg-libx11  # [unix]
@@ -54,7 +54,7 @@ requirements:
     - freeimage
     - openexr
     - sdl2
-    - swig
+    - swig         # [unix]
 
 test:
   commands:

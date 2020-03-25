@@ -1,0 +1,22 @@
+diff --git a/OgreMain/src/OgreDynLib.cpp b/OgreMain/src/OgreDynLib.cpp
+index b4ce78e46..21304062c 100644
+--- a/OgreMain/src/OgreDynLib.cpp
++++ b/OgreMain/src/OgreDynLib.cpp
+@@ -99,7 +99,7 @@ namespace Ogre {
+         LogManager::getSingleton().logMessage("Loading library " + name);
+ 
+         mInst = (DYNLIB_HANDLE)DYNLIB_LOAD( name.c_str() );
+-#if OGRE_PLATFORM == OGRE_PLATFORM_APPLE
++/*#if OGRE_PLATFORM == OGRE_PLATFORM_APPLE
+         if(!mInst)
+         {
+             name = mName;
+@@ -108,7 +108,7 @@ namespace Ogre {
+             // Try again as a framework
+             mInst = (DYNLIB_HANDLE)FRAMEWORK_LOAD( name );
+         }
+-#endif
++#endif*/
+         if( !mInst )
+             OGRE_EXCEPT(
+                 Exception::ERR_INTERNAL_ERROR, 

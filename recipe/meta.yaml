@@ -10,13 +10,13 @@ source:
     sha256: f14465012b0a10bc3fd3669d02965279878b1048e9972c730866e64688a9ec8d
     patches:
       - 0001-enable-pkg-config-for-Windows.patch  # [win]
-      - 0002-fix-objective-c-osx.patch  # [osx]
+      - 0002-osx-no-framework.patch  # [osx]
   - url: https://github.com/ocornut/imgui/archive/v1.73.tar.gz
     sha256: 4c7255f49d814a389c23d170ac4f25dfe9b84a392307b92abc77fa63114ce2b5
     folder: Components/Overlay/src/imgui/
 
 build:
-  number: 3
+  number: 4
   skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage('ogre', max_pin='x.x') }}

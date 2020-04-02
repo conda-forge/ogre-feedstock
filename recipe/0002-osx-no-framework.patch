@@ -1,0 +1,20 @@
+diff --git a/OgreMain/src/OgreDynLib.cpp b/OgreMain/src/OgreDynLib.cpp
+index b09f962d3..2f801675c 100644
+--- a/OgreMain/src/OgreDynLib.cpp
++++ b/OgreMain/src/OgreDynLib.cpp
+@@ -96,13 +96,13 @@ namespace Ogre {
+             name += ".dll";
+ #endif
+         mInst = (DYNLIB_HANDLE)DYNLIB_LOAD( name.c_str() );
+-#if OGRE_PLATFORM == OGRE_PLATFORM_APPLE
++/*#if OGRE_PLATFORM == OGRE_PLATFORM_APPLE
+         if(!mInst)
+         {
+             // Try again as a framework
+             mInst = (DYNLIB_HANDLE)FRAMEWORK_LOAD( mName );
+         }
+-#endif
++#endif*/
+         if( !mInst )
+             OGRE_EXCEPT(
+                 Exception::ERR_INTERNAL_ERROR, 

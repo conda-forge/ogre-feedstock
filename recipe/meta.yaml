@@ -65,7 +65,7 @@ test:
     - test -f $PREFIX/lib/libOgreMain${SHLIB_EXT}  # [unix]
     - test -f $PREFIX/lib/OGRE/cmake/OgreAddTargets.cmake  # [linux]
     - test -f $PREFIX/CMake/OgreAddTargets.cmake  # [osx]
-    - test -f $PREFIX/lib/libOgreRTShaderSystem{SHLIB_EXT}  # [unix]
+    - test -f $PREFIX/lib/libOgreRTShaderSystem${SHLIB_EXT}  # [unix]
 
 about:
   home: https://www.ogre3d.org/

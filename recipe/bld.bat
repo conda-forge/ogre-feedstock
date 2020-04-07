@@ -1,3 +1,6 @@
+:: remove extra boost from the global.
+rd /s /q %BOOST_ROOT_1_69_0%
+
 :: MSVC is preferred.
 set CC=cl.exe
 set CXX=cl.exe

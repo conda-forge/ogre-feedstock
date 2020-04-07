@@ -1,6 +1,3 @@
-:: remove extra boost from the global.
-rd /s /q %BOOST_ROOT_1_69_0%
-
 :: MSVC is preferred.
 set CC=cl.exe
 set CXX=cl.exe
@@ -22,8 +19,7 @@ cmake ^
     -DOGRE_BUILD_TOOLS=FALSE ^
     -DOGRE_INSTALL_PDB=FALSE ^
     -DOGRE_RESOURCEMANAGER_STRICT=0 ^
-    -DOGRE_THREAD_SUPPORT=2 ^
-    -DOGRE_THREAD_PROVIDER=1 ^
+    -DOGRE_CONFIG_THREAD_PROVIDER=std ^
     -DOGRE_CONFIG_ENABLE_ZIP=ON ^
     %SRC_DIR%
 if errorlevel 1 exit 1

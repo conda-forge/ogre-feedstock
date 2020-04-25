@@ -1,5 +1,5 @@
 {% set name = "ogre" %}
-{% set version = "1.12.5" %}
+{% set version = "1.12.6" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://github.com/OGRECave/ogre/archive/v{{ version }}.tar.gz
-    sha256: f14465012b0a10bc3fd3669d02965279878b1048e9972c730866e64688a9ec8d
+    sha256: ca85e4a40817f832600415679dac29e113b23eb59fcffb9c7c5066cf2864c124
     patches:
       - 0001-enable-pkg-config-for-Windows.patch  # [win]
       - 0002-osx-no-framework.patch  # [osx]
@@ -16,7 +16,7 @@ source:
     folder: Components/Overlay/src/imgui/
 
 build:
-  number: 4
+  number: 0
   skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage('ogre', max_pin='x.x') }}
@@ -68,7 +68,7 @@ about:
   home: https://www.ogre3d.org/
   license: MIT
   license_file: LICENSE
-  summary: 'OGRE is a scene-oriented, flexible 3D engine written in C++ designed to make it easier and more intuitive for developers to produce games and demos utilising 3D hardware.'
+  summary: OGRE is a scene-oriented, flexible 3D engine written in C++ designed to make it easier and more intuitive for developers to produce games and demos utilising 3D hardware.
 
 extra:
   recipe-maintainers:

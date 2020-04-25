@@ -11,8 +11,6 @@ freetype:
 pin_run_as_build:
   freetype:
     max_pin: x
-  vc:
-    max_pin: x
   zlib:
     max_pin: x.x
 vc:

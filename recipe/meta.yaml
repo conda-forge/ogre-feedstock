@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://github.com/OGRECave/ogre/archive/v{{ version }}.tar.gz
-    sha256: ca85e4a40817f832600415679dac29e113b23eb59fcffb9c7c5066cf2864c124
+    sha256: c6347094733b459b6e8bb10f6ae234a66b635e3ef4212ba536b8fa146a775acf
     patches:
       - 0001-enable-pkg-config-for-Windows.patch  # [win]
       - 0002-osx-no-framework.patch  # [osx]

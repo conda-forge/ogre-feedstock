@@ -1,5 +1,5 @@
 {% set name = "ogre" %}
-{% set version = "1.12.6" %}
+{% set version = "1.12.7" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,10 @@ package:
 
 source:
   - url: https://github.com/OGRECave/ogre/archive/v{{ version }}.tar.gz
-    sha256: c6347094733b459b6e8bb10f6ae234a66b635e3ef4212ba536b8fa146a775acf
+    sha256: 8866a6ab32c424f4ecf53f452f5c2812f35b6643ed18266eb26c607d8b2f5eb5
     patches:
       - 0001-enable-pkg-config-for-Windows.patch  # [win]
       - 0002-osx-no-framework.patch  # [osx]
-      - 0003-osx-fix-libs.patch  # [osx]
   - url: https://github.com/ocornut/imgui/archive/v1.73.tar.gz
     sha256: 4c7255f49d814a389c23d170ac4f25dfe9b84a392307b92abc77fa63114ce2b5
     folder: Components/Overlay/src/imgui/

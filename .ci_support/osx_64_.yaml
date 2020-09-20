@@ -1,19 +1,29 @@
+MACOSX_DEPLOYMENT_TARGET:
+- '10.9'
 c_compiler:
-- vs2017
+- clang
+c_compiler_version:
+- '10'
 channel_sources:
 - conda-forge,defaults
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- vs2017
+- clangxx
+cxx_compiler_version:
+- '10'
 freetype:
 - 2.9.1
+macos_machine:
+- x86_64-apple-darwin13.4.0
+openexr:
+- 2.5.1
 pin_run_as_build:
   freetype:
     max_pin: x
   zlib:
     max_pin: x.x
-vc:
-- '14'
+target_platform:
+- osx-64
 zlib:
 - '1.2'

@@ -14,10 +14,14 @@ docker_image:
 - condaforge/linux-anvil-comp7
 freetype:
 - 2.9.1
+openexr:
+- 2.5.1
 pin_run_as_build:
   freetype:
     max_pin: x
   zlib:
     max_pin: x.x
+target_platform:
+- linux-64
 zlib:
 - '1.2'

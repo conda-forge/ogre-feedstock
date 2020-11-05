@@ -45,8 +45,7 @@ requirements:
     - zziplib
     - freeimage
     - openexr
-    - sdl2         # [not osx]
-    - sdl2 2.0.10  # [osx]
+    - sdl2
     - swig         # [unix]
     - mono         # [unix]
   run:

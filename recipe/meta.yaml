@@ -13,7 +13,7 @@ source:
       - 0002-osx-no-framework.patch  # [osx]
 
 build:
-  number: 5
+  number: 6
   skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage('ogre', max_pin='x.x') }}

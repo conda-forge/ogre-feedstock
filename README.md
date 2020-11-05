@@ -5,11 +5,9 @@ Home: https://www.ogre3d.org/
 
 Package license: MIT
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/ogre-feedstock/blob/master/LICENSE.txt)
 
 Summary: OGRE is a scene-oriented, flexible 3D engine written in C++ designed to make it easier and more intuitive for developers to produce games and demos utilising 3D hardware.
-
-
 
 Current build status
 ====================

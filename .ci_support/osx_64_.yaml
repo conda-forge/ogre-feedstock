@@ -13,7 +13,7 @@ cxx_compiler:
 cxx_compiler_version:
 - '10'
 freetype:
-- 2.9.1
+- '2'
 macos_machine:
 - x86_64-apple-darwin13.4.0
 openexr:
@@ -25,5 +25,8 @@ pin_run_as_build:
     max_pin: x.x
 target_platform:
 - osx-64
+zip_keys:
+- - c_compiler_version
+  - cxx_compiler_version
 zlib:
 - '1.2'

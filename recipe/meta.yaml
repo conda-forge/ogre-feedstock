@@ -47,6 +47,7 @@ requirements:
     - freeimage
     - openexr
     - sdl2
+    - numpy
     - swig         # [unix]
     - mono         # [unix]
   run:
@@ -59,7 +60,9 @@ requirements:
     - freeimage
     - openexr
     - sdl2
+    - {{ pin_compatible('numpy') }}
     - swig         # [unix]
+    - lxml
 
 test:
   commands:

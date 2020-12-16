@@ -1,5 +1,5 @@
 {% set name = "ogre" %}
-{% set version = "1.12.9" %}
+{% set version = "1.12.10" %}
 
 package:
   name: {{ name|lower }}
@@ -7,16 +7,17 @@ package:
 
 source:
   - url: https://github.com/OGRECave/ogre/archive/v{{ version }}.tar.gz
-    sha256: 028e7d0bbfce8fd254e1102666b07b7cbb9379321e88885d82feee5e061342aa
+    sha256: d4f791e6c4df9307efb8e4e92652233f948ea06d5e22e065f299c9ab8fc5cfa4
     patches:
       - 0001-enable-pkg-config-for-Windows.patch  # [win]
       - 0002-osx-no-framework.patch  # [osx]
+      - 0003-clang11-fix.patch  # [osx]
   - url: https://github.com/ocornut/imgui/archive/v1.73.tar.gz
     sha256: 4c7255f49d814a389c23d170ac4f25dfe9b84a392307b92abc77fa63114ce2b5
     folder: Components/Overlay/src/imgui/
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage('ogre', max_pin='x.x') }}
@@ -46,6 +47,7 @@ requirements:
     - freeimage
     - openexr
     - sdl2
+    - numpy
     - swig         # [unix]
     - mono         # [unix]
   run:
@@ -58,7 +60,9 @@ requirements:
     - freeimage
     - openexr
     - sdl2
+    - {{ pin_compatible('numpy') }}
     - swig         # [unix]
+    - lxml
 
 test:
   commands:

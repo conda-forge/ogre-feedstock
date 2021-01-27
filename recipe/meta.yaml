@@ -66,6 +66,10 @@ requirements:
 test:
   commands:
     - if not exist %PREFIX%\\Library\\bin\\OgreMain.dll exit 1  # [win]
+    - test -f $PREFIX/include/OGRE/OgreRoot.h  # [unix]
+    - test -f $PREFIX/lib/pkgconfig/OGRE.pc  # [unix]
+    - test -f $PREFIX/lib/libOgreMain${SHLIB_EXT}  # [unix]
+    - test -f $PREFIX/lib/libOgreRTShaderSystem${SHLIB_EXT}  # [unix]
 
 about:
   home: https://www.ogre3d.org/

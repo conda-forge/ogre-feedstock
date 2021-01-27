@@ -21,5 +21,9 @@ cmake .. \
       -DOGRE_CONFIG_THREAD_PROVIDER="std" \
       -DOGRE_BUILD_LIBS_AS_FRAMEWORKS=0
 
-make -j${CPU_COUNT}
+if [ ${target_platform} == "linux-ppc64le" ]; then
+  make -j${CPU_COUNT} >/dev/null || make
+else
+  make -j${CPU_COUNT}
+fi
 make install

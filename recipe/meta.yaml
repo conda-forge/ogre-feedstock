@@ -13,8 +13,7 @@ source:
       - 0002-osx-no-framework.patch  # [osx]
 
 build:
-  number: 6
-  skip: true  # [win and vc<14]
+  number: 7
   run_exports:
     - {{ pin_subpackage('ogre', max_pin='x.x') }}
 
@@ -43,8 +42,8 @@ requirements:
     - freeimage
     - openexr
     - sdl2
-    - swig         # [unix]
-    - mono         # [unix]
+    - swig         # [unix and not aarch64 and not ppc64le]
+    - mono         # [unix and not aarch64 and not ppc64le]
   run:
     - xorg-libx11  # [unix]
     - xorg-libxaw  # [unix]
@@ -55,7 +54,7 @@ requirements:
     - freeimage
     - openexr
     - sdl2
-    - swig         # [unix]
+    - swig         # [unix and not aarch64 and not ppc64le]
 
 test:
   commands:

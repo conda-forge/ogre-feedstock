@@ -18,7 +18,6 @@ source:
 
 build:
   number: 0
-  skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage('ogre', max_pin='x.x') }}
 
@@ -48,8 +47,8 @@ requirements:
     - openexr
     - sdl2
     - numpy
-    - swig         # [unix]
-    - mono         # [unix]
+    - swig         # [unix and not aarch64 and not ppc64le]
+    - mono         # [unix and not aarch64 and not ppc64le]
   run:
     - xorg-libx11  # [unix]
     - xorg-libxaw  # [unix]
@@ -61,7 +60,7 @@ requirements:
     - openexr
     - sdl2
     - {{ pin_compatible('numpy') }}
-    - swig         # [unix]
+    - swig         # [unix and not aarch64 and not ppc64le]
     - lxml
 
 test:

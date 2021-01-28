@@ -8,6 +8,8 @@ cxx_compiler:
 - vs2017
 freetype:
 - '2'
+numpy:
+- '1.16'
 openexr:
 - '2.5'
 pin_run_as_build:
@@ -17,7 +19,5 @@ pin_run_as_build:
     max_pin: x.x
 target_platform:
 - win-64
-vc:
-- '14'
 zlib:
 - '1.2'

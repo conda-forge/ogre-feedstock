@@ -3,6 +3,7 @@
 mkdir build
 cd build
 
+# This is needed as otherwise the log limit exceeds on Travis
 if [ ${target_platform} == "linux-ppc64le" ]; then
   WARNING_FLAGS=-DCMAKE_CXX_FLAGS="-Wno-deprecated-copy"
 else
@@ -28,9 +29,5 @@ cmake .. \
       -DOGRE_BUILD_LIBS_AS_FRAMEWORKS=0 \
       ${WARNING_FLAGS}
 
-if [ ${target_platform} == "linux-ppc64le" ]; then
-  make -j${CPU_COUNT} >/dev/null || make
-else
-  make -j${CPU_COUNT}
-fi
+make -j${CPU_COUNT}
 make install

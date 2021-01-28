@@ -3,6 +3,12 @@
 mkdir build
 cd build
 
+if [ ${target_platform} == "linux-ppc64le" ]; then
+  WARNING_FLAGS=-DCMAKE_CXX_FLAGS="-Wno-deprecated-copy"
+else
+  WARNING_FLAGS=
+fi
+
 cmake .. \
       -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_PREFIX_PATH=$PREFIX \
@@ -19,7 +25,8 @@ cmake .. \
       -DOGRE_INSTALL_PDB=FALSE \
       -DOGRE_RESOURCEMANAGER_STRICT=0 \
       -DOGRE_CONFIG_THREAD_PROVIDER="std" \
-      -DOGRE_BUILD_LIBS_AS_FRAMEWORKS=0
+      -DOGRE_BUILD_LIBS_AS_FRAMEWORKS=0 \
+      ${WARNING_FLAGS}
 
 if [ ${target_platform} == "linux-ppc64le" ]; then
   make -j${CPU_COUNT} >/dev/null || make

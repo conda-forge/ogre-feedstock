@@ -23,5 +23,5 @@ cmake .. \
       -DOGRE_BUILD_LIBS_AS_FRAMEWORKS=0 \
       -DOGRE_ENABLE_PRECOMPILED_HEADERS=0
 
-make -j${CPU_COUNT}
+make VERBOSE=1 -j${CPU_COUNT}
 make install

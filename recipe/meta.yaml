@@ -48,7 +48,7 @@ requirements:
     - sdl2
     - numpy
     - swig         # [unix and not aarch64 and not ppc64le]
-    - mono         # [unix and not aarch64 and not ppc64le and not osxarm64]
+    - mono         # [unix and not aarch64 and not ppc64le and not arm64]
   run:
     - xorg-libx11  # [unix]
     - xorg-libxaw  # [unix]

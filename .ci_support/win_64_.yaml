@@ -9,7 +9,7 @@ cxx_compiler:
 freetype:
 - '2'
 numpy:
-- '1.16'
+- '1.17'
 openexr:
 - '2.5'
 pin_run_as_build:

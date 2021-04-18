@@ -10,7 +10,11 @@ else
   WARNING_FLAGS=
 fi
 
-cmake .. \
+if [[ "${target_platform}" == "osx-arm64" ]]; then
+      OGRE_OSX_ARCH="-DCMAKE_OSX_ARCHITECTURES=arm64"
+fi
+
+cmake ${CMAKE_ARGS} .. \
       -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_PREFIX_PATH=$PREFIX \
       -DCMAKE_INSTALL_PREFIX=$PREFIX \
@@ -27,7 +31,8 @@ cmake .. \
       -DOGRE_RESOURCEMANAGER_STRICT=0 \
       -DOGRE_CONFIG_THREAD_PROVIDER="std" \
       -DOGRE_BUILD_LIBS_AS_FRAMEWORKS=0 \
-      ${WARNING_FLAGS}
+      ${WARNING_FLAGS} \
+      ${OGRE_OSX_ARCH}
 
 make -j${CPU_COUNT}
 make install

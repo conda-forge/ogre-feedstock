@@ -3,7 +3,11 @@
 mkdir build
 cd build
 
-cmake .. \
+if [[ "${target_platform}" == "osx-arm64" ]]; then
+      OGRE_OSX_ARCH="-DCMAKE_OSX_ARCHITECTURES=arm64"
+fi
+
+cmake ${CMAKE_ARGS} .. \
       -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_PREFIX_PATH=$PREFIX \
       -DCMAKE_INSTALL_PREFIX=$PREFIX \
@@ -21,7 +25,8 @@ cmake .. \
       -DOGRE_THREAD_SUPPORT=2 \
       -DOGRE_THREAD_PROVIDER=1 \
       -DOGRE_BUILD_LIBS_AS_FRAMEWORKS=0 \
-      -DOGRE_ENABLE_PRECOMPILED_HEADERS=0
+      -DOGRE_ENABLE_PRECOMPILED_HEADERS=0 \
+      $OGRE_OSX_ARCH
 
 make -j${CPU_COUNT}
 make install

@@ -28,12 +28,12 @@ requirements:
     - cmake
     - pkg-config
     - make  # [unix]
-    - {{ cdt('xorg-x11-proto-devel') }}  # [unix]
-    - {{ cdt('mesa-libgl-devel') }}      # [unix]
-    - {{ cdt('mesa-dri-drivers') }}      # [unix]
-    - {{ cdt('libxrender-devel') }}      # [unix]
-    - {{ cdt('libxrandr-devel') }}       # [unix]
-    - {{ cdt('libxrandr') }}             # [unix]
+    - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
+    - {{ cdt('mesa-libgl-devel') }}      # [linux]
+    - {{ cdt('mesa-dri-drivers') }}      # [linux]
+    - {{ cdt('libxrender-devel') }}      # [linux]
+    - {{ cdt('libxrandr-devel') }}       # [linux]
+    - {{ cdt('libxrandr') }}             # [linux]
   host:
     - xorg-libx11  # [unix]
     - xorg-libxaw  # [unix]
@@ -48,7 +48,7 @@ requirements:
     - sdl2
     - numpy
     - swig         # [unix and not aarch64 and not ppc64le]
-    - mono         # [unix and not aarch64 and not ppc64le]
+    - mono         # [unix and not aarch64 and not ppc64le and not arm64]
   run:
     - xorg-libx11  # [unix]
     - xorg-libxaw  # [unix]

@@ -10,7 +10,8 @@ source:
   sha256: 5b755a91bcb2a48a01c74109a9b41592533700622a8394c62589dce2adeddead
   patches:
       - 0001-enable-pkg-config-for-Windows.patch  # [win]
-      - 0002-osx-no-framework.patch  # [osx]
+      - 0002-osx-no-framework.patch               # [osx]
+      - 0003-arm-platform.patch                   # [arm64]
 
 build:
   number: 7

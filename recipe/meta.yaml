@@ -10,7 +10,8 @@ source:
   sha256: 5b755a91bcb2a48a01c74109a9b41592533700622a8394c62589dce2adeddead
   patches:
       - 0001-enable-pkg-config-for-Windows.patch  # [win]
-      - 0002-osx-no-framework.patch  # [osx]
+      - 0002-osx-no-framework.patch               # [osx]
+      - 0003-arm-platform.patch                   # [arm64]
 
 build:
   number: 7
@@ -24,12 +25,12 @@ requirements:
     - cmake
     - pkg-config
     - make                               # [unix]
-    - {{ cdt('xorg-x11-proto-devel') }}  # [unix]
-    - {{ cdt('mesa-libgl-devel') }}      # [unix]
-    - {{ cdt('mesa-dri-drivers') }}      # [unix]
-    - {{ cdt('libxrender-devel') }}      # [unix]
-    - {{ cdt('libxrandr-devel') }}       # [unix]
-    - {{ cdt('libxrandr') }}             # [unix]
+    - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
+    - {{ cdt('mesa-libgl-devel') }}      # [linux]
+    - {{ cdt('mesa-dri-drivers') }}      # [linux]
+    - {{ cdt('libxrender-devel') }}      # [linux]
+    - {{ cdt('libxrandr-devel') }}       # [linux]
+    - {{ cdt('libxrandr') }}             # [linux]
   host:
     - xorg-libx11  # [unix]
     - xorg-libxaw  # [unix]
@@ -43,7 +44,7 @@ requirements:
     - openexr
     - sdl2
     - swig         # [unix and not aarch64 and not ppc64le]
-    - mono         # [unix and not aarch64 and not ppc64le]
+    - mono         # [unix and not aarch64 and not ppc64le and not arm64]
   run:
     - xorg-libx11  # [unix]
     - xorg-libxaw  # [unix]
@@ -76,3 +77,4 @@ extra:
   recipe-maintainers:
     - seanyen
     - wolfv
+    - Tobias-Fischer

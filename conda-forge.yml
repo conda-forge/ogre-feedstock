@@ -3,4 +3,4 @@ provider: {linux_aarch64: default, linux_ppc64le: default}
 build_platform: {osx_arm64: osx_64}
 test_on_native_only: true
 bot:
-  abi_migration_branches: ["1.10"]
+  abi_migration_branches: ["1.10", "1.12"]

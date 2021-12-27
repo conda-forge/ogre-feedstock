@@ -46,11 +46,12 @@ requirements:
     - {{ cdt('libglvnd-glx') }}          # [linux]
     - {{ cdt('libglvnd') }}              # [linux]
   host:
-    - xorg-libx11  # [unix]
-    - xorg-libxaw  # [unix]
-    - xorg-libxt   # [unix]
-    - libglu       # [linux]
-    - freeglut     # [linux]
+    - xorg-libx11     # [unix]
+    - xorg-libxaw     # [unix]
+    - xorg-libxt      # [unix]
+    - xorg-libxfixes  # [linux]
+    - libglu          # [linux]
+    - freeglut        # [linux]
     - freetype
     - pugixml
     - zlib

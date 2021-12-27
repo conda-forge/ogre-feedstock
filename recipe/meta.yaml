@@ -34,11 +34,20 @@ requirements:
     - {{ cdt('libxrender-devel') }}      # [linux]
     - {{ cdt('libxrandr-devel') }}       # [linux]
     - {{ cdt('libxrandr') }}             # [linux]
-  host:
+    - {{ cdt('libxdamage') }}            # [linux]
+    - {{ cdt('libselinux') }}            # [linux]
+    - {{ cdt('libxext') }}               # [linux]
+    - {{ cdt('libxfixes') }}             # [linux]
+    - {{ cdt('libxcb') }}                # [linux]
+    - {{ cdt('libxau') }}                # [linux]
+    - {{ cdt('libxi') }}                 # [linux]
+    - {{ cdt('libxxf86vm') }}            # [linux]
+host:
     - xorg-libx11  # [unix]
     - xorg-libxaw  # [unix]
     - xorg-libxt   # [unix]
     - libglu       # [linux]
+    - freeglut     # [linux]
     - freetype
     - pugixml
     - zlib

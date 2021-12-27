@@ -42,7 +42,7 @@ requirements:
     - {{ cdt('libxau') }}                # [linux]
     - {{ cdt('libxi') }}                 # [linux]
     - {{ cdt('libxxf86vm') }}            # [linux]
-host:
+  host:
     - xorg-libx11  # [unix]
     - xorg-libxaw  # [unix]
     - xorg-libxt   # [unix]

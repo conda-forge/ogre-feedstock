@@ -26,7 +26,6 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - sysroot_linux-64 2.17              # [linux64]
     - cmake
     - pkg-config
     - make  # [unix]
@@ -36,23 +35,12 @@ requirements:
     - {{ cdt('libxrender-devel') }}      # [linux]
     - {{ cdt('libxrandr-devel') }}       # [linux]
     - {{ cdt('libxrandr') }}             # [linux]
-    - {{ cdt('libxdamage') }}            # [linux]
-    - {{ cdt('libselinux') }}            # [linux]
-    - {{ cdt('libxext') }}               # [linux]
-    - {{ cdt('libxfixes') }}             # [linux]
-    - {{ cdt('libxcb') }}                # [linux]
-    - {{ cdt('libxau') }}                # [linux]
-    - {{ cdt('libxi') }}                 # [linux]
-    - {{ cdt('libxxf86vm') }}            # [linux]
-    - {{ cdt('libglvnd-glx') }}          # [linux]
-    - {{ cdt('libglvnd') }}              # [linux]
   host:
-    - xorg-libx11     # [unix]
-    - xorg-libxaw     # [unix]
-    - xorg-libxt      # [unix]
-    - xorg-libxfixes  # [linux]
-    - libglu          # [linux]
-    - freeglut        # [linux]
+    - xorg-libx11  # [unix]
+    - xorg-libxaw  # [unix]
+    - xorg-libxt   # [unix]
+    - libglu       # [linux]
+    - freeglut     # [linux]
     - freetype
     - pugixml
     - zlib

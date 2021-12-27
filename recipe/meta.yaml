@@ -40,7 +40,6 @@ requirements:
     - xorg-libxaw  # [unix]
     - xorg-libxt   # [unix]
     - libglu       # [linux]
-    - freeglut     # [linux]
     - freetype
     - pugixml
     - zlib

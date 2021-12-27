@@ -12,6 +12,7 @@ source:
       - 0001-enable-pkg-config-for-Windows.patch  # [win]
       - 0002-osx-no-framework.patch  # [osx]
       - 0003-clang11-fix.patch  # [osx]
+      - 0004-fix-glx.patch  # [linux]
   - url: https://github.com/ocornut/imgui/archive/v1.73.tar.gz
     sha256: 4c7255f49d814a389c23d170ac4f25dfe9b84a392307b92abc77fa63114ce2b5
     folder: Components/Overlay/src/imgui/

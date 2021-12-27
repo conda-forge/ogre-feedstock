@@ -1,0 +1,13 @@
+diff --git a/CMake/Dependencies.cmake b/CMake/Dependencies.cmake
+index f955899f0e..1b9b70c344 100644
+--- a/CMake/Dependencies.cmake
++++ b/CMake/Dependencies.cmake
+@@ -189,7 +189,7 @@ endif ()
+ 
+ # Find OpenGL
+ if(NOT ANDROID AND NOT EMSCRIPTEN)
+-  find_package(OpenGL)
++  find_package(OpenGL COMPONENTS EGL GLX)
+   macro_log_feature(OPENGL_FOUND "OpenGL" "Support for the OpenGL and OpenGL 3+ render systems" "http://www.opengl.org/" FALSE "" "")
+ endif()
+ 

@@ -42,6 +42,8 @@ requirements:
     - {{ cdt('libxau') }}                # [linux]
     - {{ cdt('libxi') }}                 # [linux]
     - {{ cdt('libxxf86vm') }}            # [linux]
+    - {{ cdt('libglvnd-glx') }}          # [linux]
+    - {{ cdt('libglvnd') }}              # [linux]
   host:
     - xorg-libx11  # [unix]
     - xorg-libxaw  # [unix]

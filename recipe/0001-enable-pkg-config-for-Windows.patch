@@ -2,15 +2,15 @@ diff --git a/CMake/ConfigureBuild.cmake b/CMake/ConfigureBuild.cmake
 index 0e04f59701..40f933c4bc 100644
 --- a/CMake/ConfigureBuild.cmake
 +++ b/CMake/ConfigureBuild.cmake
-@@ -149,7 +149,7 @@ if (BUILD_TYPE_LOWER STREQUAL "debug" AND WIN32)
+@@ -156,7 +156,7 @@ if (BUILD_TYPE_LOWER STREQUAL "debug" AND WIN32)
  endif ()
  
  # Create the pkg-config package files on Unix systems
 -if (UNIX)
-+#if (UNIX)
-   set(OGRE_PLUGIN_PREFIX "")
++# if (UNIX)
    set(OGRE_PLUGIN_EXT ".so")
    set(OGRE_PAGING_ADDITIONAL_PACKAGES "")
+   if (OGRE_STATIC)
 @@ -158,12 +158,17 @@ if (UNIX)
      set(OGRE_PLUGIN_EXT ".a")
    endif ()
@@ -40,19 +40,6 @@ index 0e04f59701..40f933c4bc 100644
  
  if(OGRE_CONFIG_STATIC_LINK_CRT)
  #We statically link to reduce dependencies
-diff --git a/CMake/Templates/OGRE.pc.in b/CMake/Templates/OGRE.pc.in
-index 5d752f2991..a4baaafa65 100644
---- a/CMake/Templates/OGRE.pc.in
-+++ b/CMake/Templates/OGRE.pc.in
-@@ -2,7 +2,7 @@ prefix=@OGRE_PREFIX_PATH@
- exec_prefix=${prefix}
- libdir=${prefix}/@OGRE_LIB_DIRECTORY@
- includedir=${prefix}/include
--plugindir=${libdir}/OGRE
-+plugindir=${prefix}/@OGRE_PLUGIN_DIRECTORY@
- 
- Name: OGRE
- Description: Object-Oriented Graphics Rendering Engine
 diff --git a/CMakeLists.txt b/CMakeLists.txt
 index 376af45b89..bcdab0b274 100644
 --- a/CMakeLists.txt

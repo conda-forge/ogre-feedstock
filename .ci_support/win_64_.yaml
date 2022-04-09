@@ -1,7 +1,7 @@
 c_compiler:
 - vs2017
 channel_sources:
-- conda-forge,defaults
+- conda-forge
 channel_targets:
 - conda-forge main
 cxx_compiler:
@@ -9,9 +9,9 @@ cxx_compiler:
 freetype:
 - '2'
 numpy:
-- '1.18'
+- '1.19'
 openexr:
-- '2.5'
+- '3.1'
 pin_run_as_build:
   freetype:
     max_pin: x

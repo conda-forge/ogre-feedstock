@@ -14,7 +14,7 @@ source:
       - 0003-arm-platform.patch                   # [arm64]
 
 build:
-  number: 7
+  number: 8
   run_exports:
     - {{ pin_subpackage('ogre', max_pin='x.x') }}
 
@@ -42,7 +42,7 @@ requirements:
     - zziplib
     - freeimage
     - openexr
-    - sdl2
+    - sdl2 2.0.12
     - swig         # [unix and not aarch64 and not ppc64le]
     - mono         # [unix and not aarch64 and not ppc64le and not arm64]
   run:

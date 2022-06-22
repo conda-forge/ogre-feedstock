@@ -1,8 +1,8 @@
 diff --git a/CMake/ConfigureBuild.cmake b/CMake/ConfigureBuild.cmake
-index 0e04f59701..40f933c4bc 100644
+index 676d8ef1068..ab5cd17d022 100644
 --- a/CMake/ConfigureBuild.cmake
 +++ b/CMake/ConfigureBuild.cmake
-@@ -156,7 +156,7 @@ if (BUILD_TYPE_LOWER STREQUAL "debug" AND WIN32)
+@@ -156,18 +156,23 @@ if (BUILD_TYPE_LOWER STREQUAL "debug" AND WIN32)
  endif ()
  
  # Create the pkg-config package files on Unix systems
@@ -11,17 +11,15 @@ index 0e04f59701..40f933c4bc 100644
    set(OGRE_PLUGIN_EXT ".so")
    set(OGRE_PAGING_ADDITIONAL_PACKAGES "")
    if (OGRE_STATIC)
-@@ -158,12 +158,17 @@ if (UNIX)
      set(OGRE_PLUGIN_EXT ".a")
    endif ()
- 
++  
 +  if (WIN32)
 +    set(OGRE_PLUGIN_PREFIX "")
 +    set(OGRE_PLUGIN_EXT ".lib")
 +  endif()
-+
+ 
    set(OGRE_ADDITIONAL_LIBS "")
-   set(OGRE_ADDITIONAL_INCLUDE_DIRS "")
  
    set(OGRE_CFLAGS "")
 -  set(OGRE_PREFIX_PATH ${CMAKE_INSTALL_PREFIX})
@@ -31,9 +29,9 @@ index 0e04f59701..40f933c4bc 100644
      set(OGRE_CFLAGS "-pthread")
      set(OGRE_ADDITIONAL_LIBS "${OGRE_ADDITIONAL_LIBS} -lpthread")
    endif ()
-@@ -236,7 +241,7 @@ if (UNIX)
-     configure_file(${OGRE_TEMPLATES_DIR}/OGRE-HLMS.pc.in ${PROJECT_BINARY_DIR}/pkgconfig/OGRE-HLMS.pc @ONLY)
-     install(FILES ${PROJECT_BINARY_DIR}/pkgconfig/OGRE-HLMS.pc DESTINATION ${OGRE_LIB_DIRECTORY}/pkgconfig)
+@@ -235,7 +240,7 @@ if (UNIX)
+     configure_file(${OGRE_TEMPLATES_DIR}/OGRE-Bites.pc.in ${PROJECT_BINARY_DIR}/pkgconfig/OGRE-Bites.pc @ONLY)
+     install(FILES ${PROJECT_BINARY_DIR}/pkgconfig/OGRE-Bites.pc DESTINATION ${OGRE_LIB_DIRECTORY}/pkgconfig)
    endif ()
 -endif ()
 +# endif ()

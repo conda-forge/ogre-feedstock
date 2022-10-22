@@ -17,14 +17,9 @@ docker_image:
 freetype:
 - '2'
 numpy:
-- '1.19'
+- '1.21'
 openexr:
 - '3.1'
-pin_run_as_build:
-  freetype:
-    max_pin: x
-  zlib:
-    max_pin: x.x
 target_platform:
 - linux-ppc64le
 zip_keys:

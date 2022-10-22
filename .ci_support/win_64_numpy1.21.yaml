@@ -1,0 +1,18 @@
+c_compiler:
+- vs2019
+channel_sources:
+- conda-forge
+channel_targets:
+- conda-forge main
+cxx_compiler:
+- vs2019
+freetype:
+- '2'
+numpy:
+- '1.21'
+openexr:
+- '3.1'
+target_platform:
+- win-64
+zlib:
+- '1.2'

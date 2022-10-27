@@ -48,7 +48,7 @@ requirements:
     - openexr
     - sdl2
     - numpy
-    - swig         # [unix and not aarch64 and not ppc64le]
+    - swig 4.0     # [unix and not aarch64 and not ppc64le]
     - mono         # [unix and not aarch64 and not ppc64le and not arm64]
     - bullet-cpp
     - assimp
@@ -63,7 +63,6 @@ requirements:
     - openexr
     - sdl2
     - {{ pin_compatible('numpy') }}
-    - swig         # [unix and not aarch64 and not ppc64le]
     - lxml
     - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx and x86_64]
 

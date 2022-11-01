@@ -1,43 +1,36 @@
 diff --git a/CMake/ConfigureBuild.cmake b/CMake/ConfigureBuild.cmake
-index 676d8ef1068..ab5cd17d022 100644
+index 391d7106aa3..117116618a9 100644
 --- a/CMake/ConfigureBuild.cmake
 +++ b/CMake/ConfigureBuild.cmake
-@@ -156,18 +156,23 @@ if (BUILD_TYPE_LOWER STREQUAL "debug" AND WIN32)
+@@ -156,9 +156,12 @@ if (BUILD_TYPE_LOWER STREQUAL "debug" AND WIN32)
  endif ()
  
  # Create the pkg-config package files on Unix systems
--if (UNIX)
-+# if (UNIX)
-   set(OGRE_PLUGIN_EXT ".so")
-   set(OGRE_PAGING_ADDITIONAL_PACKAGES "")
-   if (OGRE_STATIC)
-     set(OGRE_PLUGIN_EXT ".a")
-   endif ()
-+  
-+  if (WIN32)
-+    set(OGRE_PLUGIN_PREFIX "")
+-if (UNIX OR MINGW)
++if (UNIX OR MINGW OR WIN32)
+   if (MINGW)
+     set(OGRE_PLUGIN_EXT ".dll")
++  elseif(WIN32)
 +    set(OGRE_PLUGIN_EXT ".lib")
-+  endif()
- 
++    set(OGRE_PLUGIN_PREFIX "")
+   else()
+     set(OGRE_PLUGIN_EXT ".so")
+   endif()
+@@ -170,8 +173,12 @@ if (UNIX OR MINGW)
    set(OGRE_ADDITIONAL_LIBS "")
  
    set(OGRE_CFLAGS "")
 -  set(OGRE_PREFIX_PATH ${CMAKE_INSTALL_PREFIX})
 -  if (OGRE_CONFIG_THREADS GREATER 0)
-+  set(OGRE_PREFIX_PATH "")
++  if(UNIX OR MINGW)
++    set(OGRE_PREFIX_PATH ${CMAKE_INSTALL_PREFIX})
++  else()
++    set(OGRE_PREFIX_PATH "")
++  endif()
 +  if (UNIX AND OGRE_CONFIG_THREADS GREATER 0)
      set(OGRE_CFLAGS "-pthread")
      set(OGRE_ADDITIONAL_LIBS "${OGRE_ADDITIONAL_LIBS} -lpthread")
    endif ()
-@@ -235,7 +240,7 @@ if (UNIX)
-     configure_file(${OGRE_TEMPLATES_DIR}/OGRE-Bites.pc.in ${PROJECT_BINARY_DIR}/pkgconfig/OGRE-Bites.pc @ONLY)
-     install(FILES ${PROJECT_BINARY_DIR}/pkgconfig/OGRE-Bites.pc DESTINATION ${OGRE_LIB_DIRECTORY}/pkgconfig)
-   endif ()
--endif ()
-+# endif ()
- 
- if(OGRE_CONFIG_STATIC_LINK_CRT)
- #We statically link to reduce dependencies
 diff --git a/CMakeLists.txt b/CMakeLists.txt
 index 376af45b89..bcdab0b274 100644
 --- a/CMakeLists.txt

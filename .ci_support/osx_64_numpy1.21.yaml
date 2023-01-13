@@ -24,6 +24,8 @@ numpy:
 - '1.21'
 openexr:
 - '3.1'
+sdl2:
+- '2'
 target_platform:
 - osx-64
 zip_keys:

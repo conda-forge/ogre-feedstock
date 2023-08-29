@@ -18,6 +18,8 @@ macos_machine:
 - arm64-apple-darwin20.0.0
 openexr:
 - '3.1'
+pugixml:
+- '1.13'
 sdl2:
 - '2'
 target_platform:

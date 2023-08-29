@@ -9,9 +9,13 @@ cxx_compiler:
 freetype:
 - '2'
 numpy:
-- '1.20'
+- '1.22'
 openexr:
 - '3.1'
+pugixml:
+- '1.13'
+sdl2:
+- '2'
 target_platform:
 - win-64
 zlib:

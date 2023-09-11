@@ -3,11 +3,14 @@
 mkdir build
 cd build
 
-# This is needed as otherwise the log limit exceeds on Travis
-if [ ${target_platform} == "linux-ppc64le" ]; then
-  WARNING_FLAGS=-DCMAKE_CXX_FLAGS="-Wno-deprecated-copy"
+if [ "${target_platform}" == "linux-ppc64le" ]; then
+  # This is needed as otherwise the log limit exceeds on Travis
+  WARNING_FLAGS="-DCMAKE_CXX_FLAGS=-Wno-deprecated-copy"
+elif [ "$(uname -s)" == "Darwin" ]; then
+  # Fix an issue that Clang can't compile some Mac stuff
+  WARNING_FLAGS="-DCMAKE_CXX_FLAGS=-Wno-elaborated-enum-base"
 else
-  WARNING_FLAGS=
+  WARNING_FLAGS=""
 fi
 
 if [[ "${target_platform}" == "osx-arm64" ]]; then

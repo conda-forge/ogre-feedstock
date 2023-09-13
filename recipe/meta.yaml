@@ -14,7 +14,7 @@ source:
       - 0003-arm-platform.patch                   # [arm64]
 
 build:
-  number: 12
+  number: 13
   run_exports:
     - {{ pin_subpackage('ogre', max_pin='x.x') }}
 
@@ -22,7 +22,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - cmake
+    - cmake 3.25
     - pkg-config
     - make                               # [unix]
     - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
@@ -78,3 +78,4 @@ extra:
     - seanyen
     - wolfv
     - Tobias-Fischer
+    - traversaro

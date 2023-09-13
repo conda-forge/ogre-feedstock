@@ -5,10 +5,10 @@ cd build
 
 if [ "${target_platform}" == "linux-ppc64le" ]; then
   # This is needed as otherwise the log limit exceeds on Travis
-  WARNING_FLAGS="-DCMAKE_CXX_FLAGS=-Wno-deprecated-copy"
+  WARNING_FLAGS="-Wno-deprecated-copy"
 elif [ "$(uname -s)" == "Darwin" ]; then
   # Fix an issue that Clang can't compile some Mac stuff
-  WARNING_FLAGS="-DCMAKE_CXX_FLAGS=-Wno-elaborated-enum-base"
+  WARNING_FLAGS="-Wno-elaborated-enum-base"
 else
   WARNING_FLAGS=""
 fi
@@ -16,6 +16,8 @@ fi
 if [[ "${target_platform}" == "osx-arm64" ]]; then
       OGRE_OSX_ARCH="-DCMAKE_OSX_ARCHITECTURES=arm64"
 fi
+
+export CMAKE_CXX_FLAGS="$CMAKE_CXX_FLAGS ${WARNING_FLAGS}"
 
 cmake ${CMAKE_ARGS} .. \
       -DCMAKE_BUILD_TYPE=Release \

@@ -1,11 +1,11 @@
 assimp:
-- 5.2.5
+- 5.3.1
 c_compiler:
 - gcc
 c_compiler_version:
 - '12'
 cdt_name:
-- cos7
+- cos6
 channel_sources:
 - conda-forge
 channel_targets:
@@ -19,7 +19,7 @@ docker_image:
 freetype:
 - '2'
 numpy:
-- '1.22'
+- '1.23'
 openexr:
 - '3.2'
 pugixml:
@@ -27,7 +27,7 @@ pugixml:
 sdl2:
 - '2'
 target_platform:
-- linux-ppc64le
+- linux-64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version

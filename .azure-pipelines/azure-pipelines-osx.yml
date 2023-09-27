@@ -8,11 +8,17 @@ jobs:
     vmImage: macOS-11
   strategy:
     matrix:
-      osx_64_:
-        CONFIG: osx_64_
+      osx_64_numpy1.22:
+        CONFIG: osx_64_numpy1.22
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_:
-        CONFIG: osx_arm64_
+      osx_64_numpy1.23:
+        CONFIG: osx_64_numpy1.23
+        UPLOAD_PACKAGES: 'True'
+      osx_arm64_numpy1.22:
+        CONFIG: osx_arm64_numpy1.22
+        UPLOAD_PACKAGES: 'True'
+      osx_arm64_numpy1.23:
+        CONFIG: osx_arm64_numpy1.23
         UPLOAD_PACKAGES: 'True'
   timeoutInMinutes: 360
 

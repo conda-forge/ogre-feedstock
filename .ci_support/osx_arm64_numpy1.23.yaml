@@ -1,9 +1,7 @@
 MACOSX_DEPLOYMENT_TARGET:
-- '10.10'
-MACOSX_SDK_VERSION:
-- '10.10'
+- '11.0'
 assimp:
-- 5.2.5
+- 5.3.1
 c_compiler:
 - clang
 c_compiler_version:
@@ -19,9 +17,9 @@ cxx_compiler_version:
 freetype:
 - '2'
 macos_machine:
-- x86_64-apple-darwin13.4.0
+- arm64-apple-darwin20.0.0
 numpy:
-- '1.22'
+- '1.23'
 openexr:
 - '3.2'
 pugixml:
@@ -29,7 +27,7 @@ pugixml:
 sdl2:
 - '2'
 target_platform:
-- osx-64
+- osx-arm64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version

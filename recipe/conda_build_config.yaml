@@ -1,4 +1,4 @@
-c_compiler_version:
-- '15'
-cxx_compiler_version:
-- '15'
+c_compiler_version:    # [osx]
+- '15'                 # [osx]
+cxx_compiler_version:  # [osx]
+- '15'                 # [osx]

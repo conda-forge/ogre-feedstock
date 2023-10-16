@@ -14,7 +14,7 @@ source:
       - 0003-arm-platform.patch                   # [arm64]
 
 build:
-  number: 14
+  number: 15
   run_exports:
     - {{ pin_subpackage('ogre', max_pin='x.x') }}
 

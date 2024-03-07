@@ -1,5 +1,5 @@
 {% set name = "ogre" %}
-{% set version = "14.2.1" %}
+{% set version = "14.2.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://github.com/OGRECave/ogre/archive/v{{ version }}.tar.gz
-    sha256: e8ebe962cb5103f5b4309ba14581e3261c1a074a02693206192f2b8abf1f6185
+    sha256: 1566e2d59ae3a6b221b7fcf8652cc1b303e8bdd81eac3fcd176f744d79058e42
     patches:
       - 0001-enable-pkg-config-for-Windows.patch  # [win]
       - 0002-osx-no-framework.patch  # [osx]

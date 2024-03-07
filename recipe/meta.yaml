@@ -1,9 +1,11 @@
 {% set name = "ogre" %}
 {% set version = "1.10.12" %}
+# Workaround for https://github.com/conda/conda-libmamba-solver/issues/446
+{% set conda_forge_specific_tweak_version = "1" %}
 
 package:
   name: {{ name|lower }}
-  version: {{ version }}
+  version: {{ version }}.{{ conda_forge_specific_tweak_version }}
 
 source:
   url: https://github.com/OGRECave/{{ name }}/archive/v{{ version }}.tar.gz
@@ -14,7 +16,7 @@ source:
       - 0003-arm-platform.patch                   # [arm64]
 
 build:
-  number: 16
+  number: 0
   run_exports:
     - {{ pin_subpackage('ogre', max_pin='x.x') }}
 

@@ -4,6 +4,8 @@ bullet_cpp:
 - '3.25'
 c_compiler:
 - vs2019
+c_stdlib:
+- vs
 channel_sources:
 - conda-forge
 channel_targets:

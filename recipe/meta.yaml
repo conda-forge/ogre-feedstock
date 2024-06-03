@@ -82,6 +82,7 @@ about:
 
 extra:
   recipe-maintainers:
+    - traversaro
     - seanyen
     - wolfv
     - Tobias-Fischer

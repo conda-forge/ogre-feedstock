@@ -1,5 +1,5 @@
 {% set name = "ogre" %}
-{% set version = "14.2.6" %}
+{% set version = "14.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://github.com/OGRECave/ogre/archive/v{{ version }}.tar.gz
-    sha256: 32437f6a90414332afaf6ac7e45633c035d07e1760f81e6419e2cb1bb79b4c12
+    sha256: 40c20797f4c21bae0d80df7ffd6fe92af26c0cdd666c2db4f005da02dfcc4d5b
     patches:
       - 0001-enable-pkg-config-for-Windows.patch  # [win]
       - 0002-osx-no-framework.patch  # [osx]
@@ -18,7 +18,7 @@ source:
     folder: Components/Overlay/src/imgui/
 
 build:
-  number: 2
+  number: 0
   run_exports:
     - {{ pin_subpackage('ogre', max_pin='x.x') }}
 

@@ -1,9 +1,9 @@
-diff --git a/CMake/ConfigureBuild.cmake b/CMake/ConfigureBuild.cmake
-index 391d7106aa3..117116618a9 100644
---- a/CMake/ConfigureBuild.cmake
-+++ b/CMake/ConfigureBuild.cmake
-@@ -156,9 +156,12 @@ if (BUILD_TYPE_LOWER STREQUAL "debug" AND WIN32)
- endif ()
+diff --git a/CMake/InstallResources.cmake b/CMake/InstallResources.cmake
+index e24d9fa1bd0..fb03d332c73 100644
+--- a/CMake/InstallResources.cmake
++++ b/CMake/InstallResources.cmake
+@@ -263,9 +263,12 @@ install(EXPORT OgreTargetsDebug CONFIGURATIONS Debug DESTINATION ${OGRE_CMAKE_DI
+ 
  
  # Create the pkg-config package files on Unix systems
 -if (UNIX OR MINGW)
@@ -16,7 +16,7 @@ index 391d7106aa3..117116618a9 100644
    else()
      set(OGRE_PLUGIN_EXT ".so")
    endif()
-@@ -170,8 +173,12 @@ if (UNIX OR MINGW)
+@@ -277,8 +280,12 @@ if (UNIX OR MINGW)
    set(OGRE_ADDITIONAL_LIBS "")
  
    set(OGRE_CFLAGS "")
@@ -31,20 +31,3 @@ index 391d7106aa3..117116618a9 100644
      set(OGRE_CFLAGS "-pthread")
      set(OGRE_ADDITIONAL_LIBS "${OGRE_ADDITIONAL_LIBS} -lpthread")
    endif ()
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 376af45b89..bcdab0b274 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -388,6 +388,12 @@ cmake_dependent_option(OGRE_CONFIG_STATIC_LINK_CRT "Statically link the MS CRT d
- set(OGRE_LIB_DIRECTORY "lib${LIB_SUFFIX}" CACHE STRING "Install path for libraries, e.g. 'lib64' on some 64-bit Linux distros.")
- set(OGRE_BIN_DIRECTORY "bin" CACHE STRING "Install path for binaries")
- 
-+if (WIN32)
-+  set(OGRE_PLUGIN_DIRECTORY "bin" CACHE STRING "Install path for plugins.")
-+else()
-+  set(OGRE_PLUGIN_DIRECTORY "lib${LIB_SUFFIX}/OGRE" CACHE STRING "Install path for plugins.")
-+endif()
-+
- cmake_dependent_option(OGRE_INSTALL_VSPROPS "Install Visual Studio Property Page." FALSE "MSVC" FALSE)
- if (OGRE_INSTALL_VSPROPS)
-   configure_file(${OGRE_TEMPLATES_DIR}/OGRE.props.in ${PROJECT_BINARY_DIR}/OGRE.props)

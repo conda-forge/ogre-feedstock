@@ -17,7 +17,7 @@ freetype:
 numpy:
 - '1.23'
 openexr:
-- '3.2'
+- '3.3'
 pugixml:
 - '1.14'
 sdl2:

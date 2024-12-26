@@ -14,9 +14,10 @@ source:
       - 0001-enable-pkg-config-for-Windows.patch  # [win]
       - 0002-osx-no-framework.patch               # [osx]
       - 0003-arm-platform.patch                   # [arm64]
+      - 0004-fix-new-libcxx.patch
 
 build:
-  number: 4
+  number: 5
   run_exports:
     - {{ pin_subpackage('ogre', max_pin='x.x') }}
 
@@ -27,18 +28,14 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake 3.25
     - pkg-config
-    - make                               # [unix]
-    - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
-    - {{ cdt('mesa-libgl-devel') }}      # [linux]
-    - {{ cdt('mesa-dri-drivers') }}      # [linux]
-    - {{ cdt('libxrender-devel') }}      # [linux]
-    - {{ cdt('libxrandr-devel') }}       # [linux]
-    - {{ cdt('libxrandr') }}             # [linux]
+    - make            # [unix]
   host:
-    - xorg-libx11  # [unix]
-    - xorg-libxaw  # [unix]
-    - xorg-libxt   # [unix]
-    - libglu       # [linux]
+    - libgl-devel     # [linux]
+    - xorg-libx11     # [unix]
+    - xorg-libxaw     # [unix]
+    - xorg-libxt      # [unix]
+    - xorg-libxrandr  # [unix]
+    - libglu          # [linux]
     - freetype
     - pugixml
     - zlib

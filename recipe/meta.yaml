@@ -28,13 +28,14 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake 3.25
     - pkg-config
-    - make                               # [unix]
+    - make            # [unix]
   host:
-    - libgl-devel  # [linux]
-    - xorg-libx11  # [unix]
-    - xorg-libxaw  # [unix]
-    - xorg-libxt   # [unix]
-    - libglu       # [linux]
+    - libgl-devel     # [linux]
+    - xorg-libx11     # [unix]
+    - xorg-libxaw     # [unix]
+    - xorg-libxt      # [unix]
+    - xorg-libxrandr  # [unix]
+    - libglu          # [linux]
     - freetype
     - pugixml
     - zlib

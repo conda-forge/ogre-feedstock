@@ -13,7 +13,7 @@ freetype:
 openexr:
 - '3.3'
 pugixml:
-- '1.14'
+- '1.15'
 sdl2:
 - '2'
 target_platform:

@@ -29,5 +29,4 @@ cmake ${CMAKE_ARGS} .. \
       -DOGRE_ENABLE_PRECOMPILED_HEADERS=0 \
       $OGRE_OSX_ARCH
 
-make -j${CPU_COUNT}
-make install
+cmake --install .

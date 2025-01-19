@@ -29,4 +29,4 @@ cmake ${CMAKE_ARGS} .. \
       -DOGRE_ENABLE_PRECOMPILED_HEADERS=0 \
       $OGRE_OSX_ARCH
 
-cmake --install .
+ninja install

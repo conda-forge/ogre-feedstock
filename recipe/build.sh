@@ -8,6 +8,7 @@ if [[ "${target_platform}" == "osx-arm64" ]]; then
 fi
 
 cmake ${CMAKE_ARGS} .. \
+      -G "Ninja" \
       -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_PREFIX_PATH=$PREFIX \
       -DCMAKE_INSTALL_PREFIX=$PREFIX \

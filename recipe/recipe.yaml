@@ -31,28 +31,22 @@ requirements:
     - ${{ stdlib("c") }}
     - ${{ compiler('cxx') }}
     - cmake
+    - ninja
     - pkg-config
-    - if: unix
-      then: make
     - if: linux
-      then: ${{ cdt('xorg-x11-proto-devel') }}
-    - if: linux
-      then: ${{ cdt('mesa-libgl-devel') }}
-    - if: linux
-      then: ${{ cdt('mesa-dri-drivers') }}
-    - if: linux
-      then: ${{ cdt('libxrender-devel') }}
-    - if: linux
-      then: ${{ cdt('libxrandr-devel') }}
-    - if: linux
-      then: ${{ cdt('libxrandr') }}
+      then:
+        - ${{ cdt('xorg-x11-proto-devel') }}
+        - ${{ cdt('mesa-libgl-devel') }}
+        - ${{ cdt('mesa-dri-drivers') }}
+        - ${{ cdt('libxrender-devel') }}
+        - ${{ cdt('libxrandr-devel') }}
+        - ${{ cdt('libxrandr') }}
   host:
     - if: unix
-      then: xorg-libx11
-    - if: unix
-      then: xorg-libxaw
-    - if: unix
-      then: xorg-libxt
+      then: 
+        - xorg-libx11
+        - xorg-libxaw
+        - xorg-libxt
     - if: linux
       then: libglu
     - freetype
@@ -71,11 +65,10 @@ requirements:
     - assimp
   run:
     - if: unix
-      then: xorg-libx11
-    - if: unix
-      then: xorg-libxaw
-    - if: unix
-      then: xorg-libxt
+      then:
+        - xorg-libx11
+        - xorg-libxaw
+        - xorg-libxt
     - freetype
     - zlib
     - zziplib
@@ -88,17 +81,15 @@ requirements:
     - ${{ pin_subpackage('ogre', upper_bound='x.x') }}
 
 tests:
-  - script:
-      - if: win
-        then: if not exist %PREFIX%\\Library\\bin\\OgreMain.dll exit 1
-      - if: unix
-        then: test -f $PREFIX/include/OGRE/OgreRoot.h
-      - if: unix
-        then: test -f $PREFIX/lib/pkgconfig/OGRE.pc
-      - if: unix
-        then: test -f $PREFIX/lib/libOgreMain${SHLIB_EXT}
-      - if: unix
-        then: test -f $PREFIX/lib/libOgreRTShaderSystem${SHLIB_EXT}
+  - package_contents:
+      lib: 
+        - OgreMain
+        - OgreRTShaderSystem
+      include:
+        - OGRE/OgreRoot.h
+      files:
+        - if: unix
+          then: lib/pkgconfig/OGRE.pc
 
 about:
   license: MIT
@@ -112,3 +103,4 @@ extra:
     - seanyen
     - wolfv
     - Tobias-Fischer
+    - baszalmstra

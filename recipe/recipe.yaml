@@ -33,9 +33,6 @@ requirements:
     - cmake
     - ninja
     - pkg-config
-    - if: linux
-      then:
-        - libgl-devel
   host:
     - if: unix
       then: 
@@ -43,7 +40,9 @@ requirements:
         - xorg-libxaw
         - xorg-libxt
     - if: linux
-      then: libglu
+      then:
+        - libglu
+        - libgl-devel
     - freetype
     - pugixml
     - zlib

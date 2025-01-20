@@ -8,6 +8,7 @@ if [[ "${target_platform}" == "osx-arm64" ]]; then
 fi
 
 cmake ${CMAKE_ARGS} .. \
+      -G "Ninja" \
       -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_PREFIX_PATH=$PREFIX \
       -DCMAKE_INSTALL_PREFIX=$PREFIX \
@@ -28,5 +29,4 @@ cmake ${CMAKE_ARGS} .. \
       -DOGRE_ENABLE_PRECOMPILED_HEADERS=0 \
       $OGRE_OSX_ARCH
 
-make -j${CPU_COUNT}
-make install
+ninja install

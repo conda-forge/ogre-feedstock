@@ -35,12 +35,7 @@ requirements:
     - pkg-config
     - if: linux
       then:
-        - ${{ cdt('xorg-x11-proto-devel') }}
-        - ${{ cdt('mesa-libgl-devel') }}
-        - ${{ cdt('mesa-dri-drivers') }}
-        - ${{ cdt('libxrender-devel') }}
-        - ${{ cdt('libxrandr-devel') }}
-        - ${{ cdt('libxrandr') }}
+        - libgl-devel
   host:
     - if: unix
       then: 

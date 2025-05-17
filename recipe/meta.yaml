@@ -18,7 +18,7 @@ source:
     folder: Components/Overlay/src/imgui/
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage('ogre', max_pin='x.x') }}
 
@@ -63,7 +63,6 @@ requirements:
     - freeimage
     - openexr
     - sdl2
-    - {{ pin_compatible('numpy') }}
     - lxml
 
 test:

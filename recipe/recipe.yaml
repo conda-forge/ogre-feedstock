@@ -8,7 +8,7 @@ package:
 
 source:
   - url: https://github.com/OGRECave/ogre/archive/v${{ version }}.tar.gz
-    sha256: a3a052dc14e7ce273e86e18c900be4b8c35f9b90bd4613843dc18b0650b19ae2
+    sha256: 0c74e6ca7bb920ff59c5da8a359e6d96215c7804261301feec4f2e54f206b27d
     patches:
       - if: win
         then: 0001-enable-pkg-config-for-Windows.patch

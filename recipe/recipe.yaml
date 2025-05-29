@@ -1,6 +1,6 @@
 context:
   name: ogre
-  version: 14.3.2
+  version: 14.3.4
 
 package:
   name: ${{ name|lower }}
@@ -69,7 +69,6 @@ requirements:
     - freeimage
     - openexr
     - sdl2
-    - ${{ pin_compatible('numpy') }}
     - lxml
   run_exports:
     - ${{ pin_subpackage('ogre', upper_bound='x.x') }}

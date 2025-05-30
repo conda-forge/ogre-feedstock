@@ -1,0 +1,100 @@
+context:
+  name: ogre
+  version: 14.3.4
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  - url: https://github.com/OGRECave/ogre/archive/v${{ version }}.tar.gz
+    sha256: 0c74e6ca7bb920ff59c5da8a359e6d96215c7804261301feec4f2e54f206b27d
+    patches:
+      - if: win
+        then: 0001-enable-pkg-config-for-Windows.patch
+      - if: osx
+        then: 0002-osx-no-framework.patch
+      - if: osx
+        then: 0003-clang11-fix.patch
+      - if: linux
+        then: 0004-fix-glx.patch
+  - url: https://github.com/ocornut/imgui/archive/v1.73.tar.gz
+    sha256: 4c7255f49d814a389c23d170ac4f25dfe9b84a392307b92abc77fa63114ce2b5
+    target_directory: Components/Overlay/src/imgui/
+
+build:
+  number: 1
+
+requirements:
+  build:
+    - ${{ compiler('c') }}
+    - ${{ stdlib("c") }}
+    - ${{ compiler('cxx') }}
+    - cmake
+    - ninja
+    - pkg-config
+  host:
+    - if: unix
+      then: 
+        - xorg-libx11
+        - xorg-libxaw
+        - xorg-libxt
+    - if: linux
+      then:
+        - libglu
+        - libgl-devel
+    - freetype
+    - pugixml
+    - zlib
+    - zziplib
+    - freeimage
+    - openexr
+    - sdl2
+    - numpy
+    - if: unix and not aarch64 and not ppc64le or unix and not aarch64 and not ppc64le
+      then: swig 4.0.*
+    - if: unix and not aarch64 and not ppc64le and not arm64
+      then: mono
+    - bullet-cpp
+    - assimp
+  run:
+    - if: unix
+      then:
+        - xorg-libx11
+        - xorg-libxaw
+        - xorg-libxt
+    - freetype
+    - zlib
+    - zziplib
+    - freeimage
+    - openexr
+    - sdl2
+    - lxml
+    - ${{ pin_compatible('numpy') }}
+  run_exports:
+    - ${{ pin_subpackage('ogre', upper_bound='x.x') }}
+
+tests:
+  - package_contents:
+      lib: 
+        - OgreMain
+        - OgreRTShaderSystem
+      include:
+        - OGRE/OgreRoot.h
+      files:
+        - if: unix
+          then: lib/pkgconfig/OGRE.pc
+
+about:
+  license: MIT
+  license_file: LICENSE
+  summary: OGRE is a scene-oriented, flexible 3D engine written in C++ designed to make it easier and more intuitive for developers to produce games and demos utilising 3D hardware.
+  homepage: https://www.ogre3d.org/
+
+extra:
+  recipe-maintainers:
+    - traversaro
+    - seanyen
+    - wolfv
+    - Tobias-Fischer
+    - baszalmstra

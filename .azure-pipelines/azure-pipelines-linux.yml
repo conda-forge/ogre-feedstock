@@ -32,18 +32,6 @@ jobs:
         CONFIG: linux_aarch64_numpy1.26
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_ppc64le_numpy1.22:
-        CONFIG: linux_ppc64le_numpy1.22
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_ppc64le_numpy1.23:
-        CONFIG: linux_ppc64le_numpy1.23
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_ppc64le_numpy1.26:
-        CONFIG: linux_ppc64le_numpy1.26
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
   timeoutInMinutes: 360
   variables: {}
 

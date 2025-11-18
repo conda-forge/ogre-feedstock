@@ -29,7 +29,7 @@ macos_machine:
 numpy:
 - '2'
 openexr:
-- '3.3'
+- '3.4'
 pugixml:
 - '1.15'
 sdl2:

@@ -15,6 +15,7 @@ source:
       - 0002-osx-no-framework.patch               # [osx]
       - 0003-arm-platform.patch                   # [arm64]
       - 0004-fix-new-libcxx.patch
+      - 0005-drop-std-binary-function.patch
 
 build:
   number: 8

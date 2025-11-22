@@ -1,0 +1,83 @@
+From a4939e10e3676034bf0722466a45bf689137905c Mon Sep 17 00:00:00 2001
+From: Pavel Rojtberg <rojtberg@gmail.com>
+Date: Thu, 7 Apr 2022 19:37:47 +0200
+Subject: [PATCH] Main: replace deprecated std::binary_function by lambda
+
+---
+ OgreMain/src/OgreLodStrategy.cpp | 24 ++++--------------------
+ 1 file changed, 4 insertions(+), 20 deletions(-)
+
+diff --git a/OgreMain/src/OgreLodStrategy.cpp b/OgreMain/src/OgreLodStrategy.cpp
+index bce3d3e6d25..65f03a99829 100644
+--- a/OgreMain/src/OgreLodStrategy.cpp
++++ b/OgreMain/src/OgreLodStrategy.cpp
+@@ -85,34 +85,18 @@ namespace Ogre {
+         return true;
+     }
+     //---------------------------------------------------------------------
+-    struct LodUsageSortLess :
+-    public std::binary_function<const MeshLodUsage&, const MeshLodUsage&, bool>
+-    {
+-        bool operator() (const MeshLodUsage& mesh1, const MeshLodUsage& mesh2)
+-        {
+-            // Sort ascending
+-            return mesh1.value < mesh2.value;
+-        }
+-    };
+     void LodStrategy::sortAscending(Mesh::MeshLodUsageList& meshLodUsageList)
+     {
+         // Perform standard sort
+-        std::sort(meshLodUsageList.begin(), meshLodUsageList.end(), LodUsageSortLess());
++        std::sort(meshLodUsageList.begin(), meshLodUsageList.end(),
++                  [](const MeshLodUsage& mesh1, const MeshLodUsage& mesh2) { return mesh1.value < mesh2.value; });
+     }
+     //---------------------------------------------------------------------
+-    struct LodUsageSortGreater :
+-    public std::binary_function<const MeshLodUsage&, const MeshLodUsage&, bool>
+-    {
+-        bool operator() (const MeshLodUsage& mesh1, const MeshLodUsage& mesh2)
+-        {
+-            // Sort descending
+-            return mesh1.value > mesh2.value;
+-        }
+-    };
+     void LodStrategy::sortDescending(Mesh::MeshLodUsageList& meshLodUsageList)
+     {
+         // Perform standard sort
+-        std::sort(meshLodUsageList.begin(), meshLodUsageList.end(), LodUsageSortGreater());
++        std::sort(meshLodUsageList.begin(), meshLodUsageList.end(),
++                  [](const MeshLodUsage& mesh1, const MeshLodUsage& mesh2) { return mesh1.value > mesh2.value; });
+     }
+     //---------------------------------------------------------------------
+     ushort LodStrategy::getIndexAscending(Real value, const Mesh::MeshLodUsageList& meshLodUsageList)
+
+diff --git a/OgreMain/src/OgreZip.cpp b/OgreMain/src/OgreZip.cpp
+index f920af3c351..384b7baac5c 100644
+--- a/OgreMain/src/OgreZip.cpp
++++ b/OgreMain/src/OgreZip.cpp
+@@ -398,14 +398,6 @@ namespace {
+         return ret;
+     }
+     //-----------------------------------------------------------------------
+-    struct FileNameCompare : public std::binary_function<FileInfo, String, bool>
+-    {
+-        bool operator()(const Ogre::FileInfo& lhs, const String& filename) const
+-        {
+-            return lhs.filename == filename;
+-        }
+-    };
+-    //-----------------------------------------------------------------------
+     bool ZipArchive::exists(const String& filename) const
+     {       
+         OGRE_LOCK_AUTO_MUTEX;
+@@ -418,7 +410,9 @@ namespace {
+         }
+ #endif
+ 
+-        return std::find_if (mFileList.begin(), mFileList.end(), std::bind2nd<FileNameCompare>(FileNameCompare(), cleanName)) != mFileList.end();
++        return std::find_if(mFileList.begin(), mFileList.end(), [&cleanName](const Ogre::FileInfo& fi) {
++                   return fi.filename == cleanName;
++               }) != mFileList.end();
+     }
+     //---------------------------------------------------------------------
+     time_t ZipArchive::getModifiedTime(const String& filename) const

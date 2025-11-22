@@ -5,7 +5,7 @@ MACOSX_SDK_VERSION:
 c_compiler:
 - clang
 c_compiler_version:
-- '15'
+- '19'
 c_stdlib:
 - macosx_deployment_target
 c_stdlib_version:
@@ -17,13 +17,13 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '15'
+- '19'
 freetype:
 - '2'
 macos_machine:
 - arm64-apple-darwin20.0.0
 openexr:
-- '3.3'
+- '3.4'
 pugixml:
 - '1.15'
 sdl2:

@@ -1,6 +1,6 @@
 context:
   name: ogre
-  version: "14.4.1"
+  version: "14.5.0"
 
 package:
   name: ${{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   - url: https://github.com/OGRECave/ogre/archive/v${{ version }}.tar.gz
-    sha256: 1c1d5d48b26acf8dd3f32fcb4cafd1216f9fe3a2ceec260ec086926651ad74de
+    sha256: ed8455e766c039ff3f2815ebcb1a976a49789741b4e4f49b3364b5f35d0b717a
     patches:
       - if: win
         then: 0001-enable-pkg-config-for-Windows.patch
@@ -23,7 +23,7 @@ source:
     target_directory: Components/Overlay/src/imgui/
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:

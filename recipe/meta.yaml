@@ -18,7 +18,7 @@ source:
       - 0005-drop-std-binary-function.patch
 
 build:
-  number: 8
+  number: 9
   run_exports:
     - {{ pin_subpackage('ogre', max_pin='x.x') }}
 

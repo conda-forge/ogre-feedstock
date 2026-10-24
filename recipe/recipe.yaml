@@ -1,6 +1,6 @@
 context:
   name: ogre
-  version: "14.6.1"
+  version: "14.6.2"
 
 package:
   name: ${{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   - url: https://github.com/OGRECave/ogre/archive/v${{ version }}.tar.gz
-    sha256: ec95dfd25c01904baa254316d9416c5acc348f58fde7e16570f698b0fdb1c87e
+    sha256: 704ebb08c0d844984ea3534bdf4e164301f7f00baacb6f05f7d118135dc06149
     patches:
       - if: win
         then: 0001-enable-pkg-config-for-Windows.patch
